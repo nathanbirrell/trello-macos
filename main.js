@@ -75,6 +75,13 @@ exports.setCurrentUri = (uri) => {
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
 
+app.on('login', (event, webContents, request, authInfo, callback) => {
+  event.preventDefault();
+  // popup a dialog to let the user enter a username/password
+  // ...
+  callback(username, password);
+});
+
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
   // On OS X it is common for applications and their menu bar

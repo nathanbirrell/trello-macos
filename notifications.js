@@ -1,30 +1,34 @@
+// require('./vendor/jquery-1.7.1')
+// require('./vendor/trello-client?key=abcc9de67a874de39451f9f0de83b029')
 const notifier = require('node-notifier');
 
-// var notification = new Notification('Title', {
-//   body: 'Lorem Ipsum Dolor Sit Amet',
-//   title:"Hello",
-//   icon:'http://placehold.it/10x10',
-//   // To prevent sound
-//   //silent:true,
-// })
-//
-// console.log(notification)
-//
-// notification.addEventListener('click', function() {
-//     alert("Clicked");
-// }, false)
-//
-// notification.addEventListener('show', function() {
-//     alert("Shown");
-// }, false)
-//
-// notification.addEventListener('error', function(error) {
-//     alert("Error");
-// }, false)
-//
-// notification.addEventListener('close', function() {
-//     alert("Closed");
-// }, false)
+let notifications;
+
+var authenticationSuccess = function() {
+  console.log('Successful authentication');
+};
+var authenticationFailure = function() {
+  console.log('Failed authentication');
+};
+
+Trello.authorize({
+  type: 'popup',
+  name: 'Trello for macOS',
+  scope: {
+    read: 'true'
+  },
+  expiration: 'never',
+  success: authenticationSuccess,
+  error: authenticationFailure
+});
+
+var showNotification = function() {
+  let notification = notifications[0]
+
+  console.log('notification', notification)
+}
+
+notifications = Trello.get('/members/me/notifications', {}, showNotification)
 
 // Object
 notifier.notify({
