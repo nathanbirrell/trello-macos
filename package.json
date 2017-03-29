@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/nathanbirrell/trello-desktop",
+  "repository": "https://github.com/nathanbirrell/trello-macos",
   "keywords": [
     "Electron",
     "trello",
