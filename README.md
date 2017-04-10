@@ -19,6 +19,6 @@ Use Trello as a native macOS application (unofficial).
 
 or simply fork and pull request :)
 
-# Disclaimer
+## Disclaimer
 
 This app is in no way endorsed by Trello, I am simply a big Trello user and like to have it in my macOS Dock.
